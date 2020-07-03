@@ -14,7 +14,8 @@ class Ship:
         self.rect = self.image.get_rect()
 
         # start each new ship at the bottom of the screen
-        self.rect.midbottom = self.screen_rect.midbottom
+        self.initpos = self.screen_rect.midbottom
+        self.rect.midbottom = self.initpos
 
         # store a decimal value for the ship's horizontal positions
         self.x = float(self.rect.x)
@@ -38,5 +39,12 @@ class Ship:
     # draw the ship at it's curent location
     def blitme(self):
         self.screen.blit(self.image, self.rect)
+
+    # function to position ship upon respawn
+    def center_ship(self):
+
+        # center ship on screen
+        self.rect.midbottom = self.initpos
+        self.x = float(self.rect.x)
     
     
